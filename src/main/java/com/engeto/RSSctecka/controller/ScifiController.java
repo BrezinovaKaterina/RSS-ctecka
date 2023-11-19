@@ -2,7 +2,6 @@ package com.engeto.RSSctecka.controller;
 import com.engeto.RSSctecka.File;
 import com.engeto.RSSctecka.FileException;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,7 +21,7 @@ public class ScifiController {
     public static void scifiII() {
         File scifiII = null;
         try{
-            scifiII = File.loadFromFile("scifi.txt");
+            scifiII = File.loadFromFile("com/engeto/RSSctecka/scifi.txt");
         } catch (FileException eScifi) {
             System.err.println("Chyba při čtení ze souboru:" +eScifi.getLocalizedMessage());
         }
