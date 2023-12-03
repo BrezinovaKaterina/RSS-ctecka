@@ -34,14 +34,14 @@ public class RSSController {
     }
 
 
-    private static String getText(String fileName) {
+    private static String getText(String filename) {
         File text = null;
         try {
-            text = File.loadFromFile("/src/main/java/com/engeto/RSSctecka/"+fileName+".txt");
+            text = File.loadFromFile("./src/main/java/com/engeto/RSSctecka/"+filename+".txt");
             return text.toString();
         } catch (FileException eFileName) {
             System.err.println("Chyba při čtení ze souboru:" +eFileName.getLocalizedMessage());
         }
-        return fileName;
+        return filename;
     }
 }
