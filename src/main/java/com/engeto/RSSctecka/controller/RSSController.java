@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
-public class ScifiController {
+public class RSSController {
 
 //    @GetMapping ("/scifi") // test pro mne
 //    public String scifi(){
@@ -17,15 +18,30 @@ public class ScifiController {
 //                "Otázka zní: Kdo skutečně vládne?";
 //    }
 
-    @GetMapping ("/scifi")
-    public static void scifiII() {
-        File scifiII = null;
-        try{
-            scifiII = File.loadFromFile("com/engeto/RSSctecka/scifi.txt");
-        } catch (FileException eScifi) {
-            System.err.println("Chyba při čtení ze souboru:" +eScifi.getLocalizedMessage());
-        }
-        System.out.println(scifiII);
+    @GetMapping("/scifi")
+    public static void text() {
+        getText("scifi");
     }
 
+    @GetMapping("/historic")
+    public static void text() {
+        getText("historic");
+    }
+
+    @GetMapping("/romantic")
+    public static void text() {
+        getText("romantic");
+    }
+
+
+    private static String getText(String fileName) {
+        File text;
+        try {
+            text = File.loadFromFile("/src/main/java/com/engeto/RSSctecka/"+fileName+".txt");
+            return text.toString();
+        } catch (FileException eFileName) {
+            System.err.println("Chyba při čtení ze souboru:" +eFileName.getLocalizedMessage());
+        }
+        return fileName;
+    }
 }

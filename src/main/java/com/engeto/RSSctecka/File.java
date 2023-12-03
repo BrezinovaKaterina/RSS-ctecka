@@ -11,8 +11,9 @@ public class File {
     public static File loadFromFile(String filename) throws FileException {
         File fileResult = new File();
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(filename)))){
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
+            while (scanner.hasNext()) {
+                //String line = scanner.nextLine();
+                System.out.println(scanner.next());
             }
         } catch (FileNotFoundException eFile){
             throw new FileException("Soubor "+filename+ " neexistuje!"+eFile.getLocalizedMessage());
